@@ -1,3 +1,4 @@
+"use strict";
 console.log(`homework started`);
 
 // let user = {
@@ -25,16 +26,59 @@ console.log(`homework started`);
 
 //----
 
-function makeUser() {
-  return {
-    name: "Джон",
-    ref: this
-  };
-};
+// function makeUser() {
+//   return {
+//     name: "Джон",
+//     ref: this,
+//     hren: 23
+//   };
+// };
 
 // let user = makeUser();
-let user = makeUser();
+// let user = makeUser();
 
-console.log(makeUser().ref.name);
-console.log( user.ref.name ); // Каким будет результат?
+// console.log(makeUser()); // Происходит вычисление (возвращение функции), а у функции this = undefined
+// console.log( user.ref.name ); // Каким будет результат?
 
+//-----
+
+// const readline = require('readline-sync');
+// let calculator = {
+//   firstOperand: 0,
+//   secondOperand: 0,
+
+//   read: function() {
+//     this.firstOperand = readline.question(`Enter first operand: `);
+//     this.secondOperand = readline.question(`Enter second operand: `);
+//   },
+//   sum(){
+//     console.log(`sum = ${+this.firstOperand + +this.secondOperand}`);
+//   },
+//   mul(){
+//     console.log(`multiplication = ${this.firstOperand * this.secondOperand}`);
+//   }
+// }
+
+// calculator.read();
+// calculator.sum();
+// calculator.mul();
+
+//----
+
+let ladder = {
+  step: 0,
+  up() {
+    this.step++;
+    return this;
+  },
+  down() {
+    this.step--;
+    return this;
+  },
+  showStep: function() { // показывает текущую ступеньку
+    console.log( this.step );
+    return this;
+  }
+};
+
+ladder.up().up().down().showStep(); // 1
